@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/alex/www/app'
+let g:netrw_dirhist_2='/home/alex/link2android/models'
+let g:netrw_dirhist_3='/home/alex/.rvm/gems/ruby-1.9.3-p392/gems/slim-1.0.1/lib/slim'
+let g:netrw_dirhist_4='/home/alex/sinatra/link2android/app'
+let g:netrw_dirhist_5='/home/alex/link2android/config'
