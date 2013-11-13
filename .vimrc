@@ -10,7 +10,7 @@ filetype indent on
 set nohlsearch
 set ignorecase
 set mouse=a
-"set mousemodel=extend
+set mousemodel=extend
 set clipboard+=unnamed
 set foldenable
 syntax enable
@@ -77,9 +77,25 @@ autocmd BufNewFile *.html                   TSkeletonSetup html.html
 autocmd BufNewFile *.tex                    TSkeletonSetup doc.tex
 
 au BufNewFile,BufRead *.slim set filetype=slim
+"au BufNewFile,BufRead *.jade set filetype=slim
 au BufNewFile,BufRead *.twig set filetype=html
 au BufNewFile,BufRead *.twig set filetype=jinja
 au BufNewFile,BufRead *.twig iunmap {<Space>
 au BufNewFile,BufRead *.twig imap {{<Space> {{<Space><Space>}}<Left><Left><Left>
 au BufNewFile,BufRead *.twig imap {%<Space> {%<Space><Space>%}<Left><Left><Left>
+
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'maksimr/vim-yate'
+Bundle 'digitaltoad/vim-jade'
+"Bundle 'jamessan/vim-gnupg'
+
+filetype plugin indent on
+set cm=blowfish
+
+:nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
