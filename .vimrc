@@ -36,6 +36,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -53,10 +56,17 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeWinPos = "right"
 
-" Gdiff shortcuts
 map <C-D> :Gdiff<CR>
+imap <C-N> <C-X><C-O>
 
 hi Normal ctermbg=none
 set t_ut=
 
 let g:autopep8_max_line_length=120
+
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+autocmd FileType typescript nmap <buffer> <C-E> <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript imap <buffer> <C-E> <Esc><C-E>
