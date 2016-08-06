@@ -39,6 +39,7 @@ Plugin 'tell-k/vim-autopep8'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'fatih/vim-go'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -73,3 +74,6 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 autocmd FileType typescript nmap <buffer> <C-E> <Plug>(TsuquyomiRenameSymbol)
 autocmd FileType typescript imap <buffer> <C-E> <Esc><C-E>
+
+" Go configuration
+let g:go_template_autocreate=0
