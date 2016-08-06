@@ -74,6 +74,7 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 autocmd FileType typescript nmap <buffer> <C-E> <Plug>(TsuquyomiRenameSymbol)
 autocmd FileType typescript imap <buffer> <C-E> <Esc><C-E>
+autocmd FileType qf wincmd J
 
 " Go configuration
 let g:go_template_autocreate=0
