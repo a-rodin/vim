@@ -46,6 +46,7 @@ set t_Co=256   " This is may or may not needed.
 set background=dark
 colorscheme PaperColor
 
+" Filetype-specific indent settings
 au BufNewFile,BufRead *.es6 set filetype=javascript
 au BufNewFile,BufRead *.conf set filetype=dosini
 autocmd FileType javascript,json,yaml,typescript set ts=2 sts=2 sw=2
