@@ -66,6 +66,7 @@ set t_ut=
 
 let g:autopep8_max_line_length=120
 
+" Typescript configuration
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
