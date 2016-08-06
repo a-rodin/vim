@@ -77,3 +77,4 @@ autocmd FileType typescript imap <buffer> <C-E> <Esc><C-E>
 
 " Go configuration
 let g:go_template_autocreate=0
+autocmd CompleteDone * pclose
