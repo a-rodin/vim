@@ -79,3 +79,5 @@ autocmd FileType qf wincmd J
 " Go configuration
 let g:go_template_autocreate=0
 autocmd CompleteDone * pclose
+autocmd FileType go nmap <buffer> <C-E> :GoRename<CR>
+autocmd FileType go imap <buffer> <C-E> <Esc><C-E>
