@@ -172,3 +172,6 @@ set backspace=indent,eol,start
 
 " Jedi configuration
 let g:jedi#popup_on_dot = 0
+
+" JSON configuration
+let g:vim_json_syntax_conceal = 1
