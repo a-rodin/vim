@@ -49,6 +49,7 @@ Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'gcmt/taboo.vim'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
