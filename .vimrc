@@ -30,23 +30,20 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'vim-scripts/tango.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'tell-k/vim-autopep8'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'fatih/vim-go'
+Plugin 'gregsexton/gitv'
 Plugin 'slashmili/alchemist.vim'
-"Plugin 'maverickg/stan.vim'
 Plugin 'mdlerch/mc-stan.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'JuliaEditorSupport/julia-vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'gcmt/taboo.vim'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'mileszs/ack.vim'
@@ -71,12 +68,12 @@ autocmd FileType dockerfile setlocal commentstring=#\ %s
 autocmd StdinReadPre * let s:std_in=1
 " let g:NERDTreeWinPos = "right"
 map <C-l> :NERDTreeTabsToggle<CR>
-imap <C-l> <Esc>:NERDTreeTagsToggle<CR>i
 let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_autofind=1
 let g:nerdtree_tabs_synchronize_focus=1
 let g:NERDTreeMouseMode=3
-let g:NERDTreeIgnore=['node_modules']
+let g:NERDTreeIgnore=['node_modules', '.*.swp', '.git', '.*.pyc', '__pycache__', '.DS_Store', '.nyc_output']
+let NERDTreeShowHidden=1
 
 let g:firstStart=0
 function NERDTreeMyOpenFile(node)
@@ -170,9 +167,6 @@ autocmd FileType go imap <buffer> <C-E> <Esc><C-E>
 let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
 
 set backspace=indent,eol,start
-
-" Jedi configuration
-let g:jedi#popup_on_dot = 0
 
 " JSON configuration
 let g:vim_json_syntax_conceal = 1
