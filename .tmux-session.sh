@@ -14,13 +14,17 @@ while true; do
 done
 tmux rename-session -t $SESSION_ID $SESSION_NUMBER
 
-HOST_ID=$(hostname | sum | cut -d' ' -f1)
 if [ -f ~/.tmux-host-colour ]; then
   HOST_COLOUR=$(cat ~/.tmux-host-colour)
-else
-  HOST_COLOUR=4
 fi
-STYLE=colour$((1 + (2 * SESSION_NUMBER + HOST_COLOUR - 1) % 8))
+COLOURS=(colour4 colour6 colour8 colour2 colour5 colour3 colour1)
+for ((COLOUR_NUMBER = 0; COLOUR_NUMBER < ${#COLOURS[@]}; COLOUR_NUMBER++)); do
+  if [ "${COLOURS[$COLOUR_NUMBER]}" == "$HOST_COLOUR" ]; then
+    break
+  fi
+done
+
+STYLE=${COLOURS[$(((SESSION_NUMBER + COLOUR_NUMBER) % ${#COLOURS[@]}))]}
 
 tmux set -t $SESSION_ID status-style bg=$STYLE
 tmux set -t $SESSION_ID pane-active-border-style fg=$STYLE
