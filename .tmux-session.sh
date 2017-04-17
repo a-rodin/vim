@@ -23,4 +23,4 @@ fi
 STYLE=colour$((1 + (2 * SESSION_NUMBER + HOST_COLOUR - 1) % 8))
 
 tmux set -t $SESSION_ID status-style bg=$STYLE
-tmux set -t $SESSION_ID pane-active-border-style bg=$STYLE
+tmux set -t $SESSION_ID pane-active-border-style fg=$STYLE
