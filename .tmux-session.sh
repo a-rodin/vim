@@ -28,3 +28,5 @@ STYLE=${COLOURS[$(((SESSION_NUMBER + COLOUR_NUMBER) % ${#COLOURS[@]}))]}
 
 tmux set -t $SESSION_ID status-style bg=$STYLE
 tmux set -t $SESSION_ID pane-active-border-style fg=$STYLE
+tmux set-hook -t $SESSION_ID after-new-window \
+  "set -t $SESSION_ID pane-active-border-style fg=$STYLE"
