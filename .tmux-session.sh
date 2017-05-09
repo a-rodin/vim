@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SESSION_ID=$(tmux list-sessions -F "#{session_id}" | tail -n1)
+SESSION_ID='$'$(tmux list-sessions -F "#{session_id}" | tr -d '$' | sort -nr | head -n1)
 
 tmux rename-session -t $SESSION_ID _${SESSION_ID/\$/}
 SESSION_NAMES=$(tmux list-sessions -F "#{session_name}")
@@ -17,7 +17,7 @@ tmux rename-session -t $SESSION_ID $SESSION_NUMBER
 if [ -f ~/.tmux-host-colour ]; then
   HOST_COLOUR=$(cat ~/.tmux-host-colour)
 fi
-COLOURS=(colour4 colour6 colour8 colour2 colour5 colour3 colour1)
+COLOURS=(colour4 colour5 colour6 colour8 colour2 colour3 colour1)
 for ((COLOUR_NUMBER = 0; COLOUR_NUMBER < ${#COLOURS[@]}; COLOUR_NUMBER++)); do
   if [ "${COLOURS[$COLOUR_NUMBER]}" == "$HOST_COLOUR" ]; then
     break
