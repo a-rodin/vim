@@ -197,3 +197,5 @@ let g:jedi#force_py_version = 3
 
 " vim-conda config
 let g:conda_startup_msg_suppress = 1
+
+let g:go_version_warning = 0
