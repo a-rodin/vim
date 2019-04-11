@@ -15,6 +15,9 @@ set clipboard=unnamed
 set foldenable
 set hlsearch
 syntax enable
+set ffs=unix
+set cc=120
+let g:NERDTreeWinSize=22
 
 set tags=./tags;
 
@@ -22,6 +25,8 @@ imap {<CR> {<CR>}<Esc>O
 imap {<Space> {<Space><Space>}<Left><Left>
 imap /*<Space> /*<Space><Space>*/<Left><Left><Left>
 imap /**<Space> /**<Space><Space>*/<Left><Left><Left>
+
+vmap <C-k> :'<,'>%!column -t\|sed 's/^/  /'\|sed 's/, */, /g'<CR>
 
 set cm=blowfish
 
@@ -34,7 +39,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
-Plugin 'sheerun/vim-polyglot'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
@@ -47,6 +51,11 @@ Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'gcmt/taboo.vim'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'mileszs/ack.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'szw/vim-maximizer'
+Plugin 'racer-rust/vim-racer'
+Plugin 'cjrh/vim-conda'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -72,7 +81,7 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_autofind=1
 let g:nerdtree_tabs_synchronize_focus=1
 let g:NERDTreeMouseMode=3
-let g:NERDTreeIgnore=['node_modules', '.*.swp', '.git', '.*.pyc', '__pycache__', '.DS_Store', '.nyc_output']
+let g:NERDTreeIgnore=['node_modules', '.*.swp', '.git', '.*.pyc', '__pycache__', '.DS_Store', '.nyc_output', '.*\.o$', '^moc_', '^\.qmake', '\.moc$', '^ui_.*\.h$']
 let NERDTreeShowHidden=1
 
 let g:firstStart=0
@@ -170,3 +179,21 @@ set backspace=indent,eol,start
 
 " JSON configuration
 let g:vim_json_syntax_conceal = 1
+
+" commentary
+autocmd FileType sql setlocal commentstring=--\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
+
+" racer config
+set hidden
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+au FileType rust map <C-]> <Plug>(rust-def)
+
+" jedi config
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_assignments_command = "<C-]>"
+let g:jedi#force_py_version = 3
+
+" vim-conda config
+let g:conda_startup_msg_suppress = 1
