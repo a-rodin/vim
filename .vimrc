@@ -18,6 +18,8 @@ syntax enable
 set ffs=unix
 set cc=120
 let g:NERDTreeWinSize=22
+" :nnoremap <C-D> "=strftime("%c")<CR>P
+" :inoremap <C-D> <C-R>=strftime("%c")<CR>
 
 set tags=./tags;
 
@@ -26,7 +28,8 @@ imap {<Space> {<Space><Space>}<Left><Left>
 imap /*<Space> /*<Space><Space>*/<Left><Left><Left>
 imap /**<Space> /**<Space><Space>*/<Left><Left><Left>
 
-vmap <C-k> :'<,'>%!column -t\|sed 's/^/  /'\|sed 's/, */, /g'<CR>
+vmap <C-k> :'<,'>%!column -t\|sed 's/^/  /'\|sed 's/, */, /g'\|sed 's/ *$//g'<CR>
+" map <C-j> :%!bash -c '(echo -n javascript:; jq -sRr @uri)'<CR>
 
 set cm=blowfish
 
@@ -35,13 +38,17 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'vim-scripts/Ambient-Color-Scheme'
+Plugin 'vim-scripts/Simple256'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
+" Plugin 'sheerun/vim-polyglot'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'fatih/vim-go'
 Plugin 'gregsexton/gitv'
 Plugin 'slashmili/alchemist.vim'
@@ -54,15 +61,23 @@ Plugin 'mileszs/ack.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'szw/vim-maximizer'
 Plugin 'racer-rust/vim-racer'
-Plugin 'cjrh/vim-conda'
+" Plugin 'cjrh/vim-conda'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'cespare/vim-toml'
+Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'prettier/vim-prettier'
+" Plugin 'ActivityWatch/aw-watcher-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set t_Co=256   " This is may or may not needed.
 set background=dark
+" set background=light
+" colorscheme Simple256
 colorscheme PaperColor
+" colorscheme ambient
 " set background=light
 " colorscheme tango
 "highlight Normal ctermfg=black
@@ -160,7 +175,7 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 autocmd FileType typescript nmap <buffer> <C-E> <Plug>(TsuquyomiRenameSymbol)
 autocmd FileType typescript imap <buffer> <C-E> <Esc><C-E>
-autocmd FileType javascript set filetype=typescript
+autocmd FileType javascript set filetype=typescript.tsx
 autocmd FileType typescript set ts=2 sts=2 sw=2
 " autocmd FileType c set noet
 " autocmd FileType c set ts=8 sts=8 sw=8
@@ -194,8 +209,17 @@ au FileType rust map <C-]> <Plug>(rust-def)
 let g:jedi#completions_enabled = 0
 let g:jedi#goto_assignments_command = "<C-]>"
 let g:jedi#force_py_version = 3
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#show_call_signatures = 0
 
 " vim-conda config
 let g:conda_startup_msg_suppress = 1
 
-let g:go_version_warning = 0
+" color picker
+map cc :VCoolor<CR>
+
+" autoformatting
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+
+let g:rustfmt_autosave = 1
