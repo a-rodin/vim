@@ -67,6 +67,9 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'prettier/vim-prettier'
+Plugin 'jparise/vim-graphql'
+Plugin 'hashivim/vim-terraform'
+
 " Plugin 'ActivityWatch/aw-watcher-vim'
 
 call vundle#end()            " required
@@ -199,6 +202,9 @@ let g:vim_json_syntax_conceal = 1
 autocmd FileType sql setlocal commentstring=--\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 
+" spell check
+autocmd FileType md set spell
+
 " racer config
 set hidden
 let g:racer_experimental_completer = 1
@@ -223,3 +229,6 @@ let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 let g:rustfmt_autosave = 1
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
