@@ -69,6 +69,7 @@ Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'jparise/vim-graphql'
 Plugin 'hashivim/vim-terraform'
+Plugin 'xavierd/clang_complete'
 
 " Plugin 'ActivityWatch/aw-watcher-vim'
 
@@ -156,7 +157,8 @@ command! -bang Tabcloseleft call TabCloseLeft('<bang>')
 autocmd BufnewFile,BufRead * let g:nerdtree_tabs_open_on_console_startup=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | let g:nerdtree_tabs_open_on_console_startup=1 | let g:firstStart=1 | endif
 
-let g:taboo_tab_format=" %N:%f%m "
+" let g:taboo_tab_format=" %N:%f%m "
+let g:taboo_tab_format=" %N:%a%m "
 
 set ruler
 set laststatus=0
@@ -232,3 +234,5 @@ let g:rustfmt_autosave = 1
 
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
+let g:clang_library_path='/usr/lib/llvm-8/lib/libclang.so.1'
