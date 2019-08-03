@@ -55,7 +55,7 @@ Plugin 'slashmili/alchemist.vim'
 Plugin 'mdlerch/mc-stan.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'JuliaEditorSupport/julia-vim'
-" Plugin 'gcmt/taboo.vim'
+Plugin 'a-rodin/taboo.vim'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'mileszs/ack.vim'
 Plugin 'rust-lang/rust.vim'
@@ -158,7 +158,7 @@ autocmd BufnewFile,BufRead * let g:nerdtree_tabs_open_on_console_startup=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | let g:nerdtree_tabs_open_on_console_startup=1 | let g:firstStart=1 | endif
 
 " let g:taboo_tab_format=" %N:%f%m "
-let g:taboo_tab_format=" %N:%a%m "
+let g:taboo_tab_format=" %N:%b%m "
 
 set ruler
 set laststatus=0
