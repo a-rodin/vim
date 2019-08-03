@@ -236,3 +236,7 @@ let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
 let g:clang_library_path='/usr/lib/llvm-8/lib/libclang.so.1'
+
+" project-specific settings
+au BufNewFile,BufRead */vector/* set binary
+au BufNewFile */vector/* set noeol
