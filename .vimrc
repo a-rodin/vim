@@ -205,7 +205,7 @@ autocmd FileType sql setlocal commentstring=--\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 
 " spell check
-autocmd FileType md set spell
+autocmd FileType md,txt,gitcommit set spell
 
 " racer config
 set hidden
