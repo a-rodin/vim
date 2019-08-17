@@ -18,6 +18,7 @@ syntax enable
 set ffs=unix
 set cc=120
 let g:NERDTreeWinSize=22
+set synmaxcol=0
 " :nnoremap <C-D> "=strftime("%c")<CR>P
 " :inoremap <C-D> <C-R>=strftime("%c")<CR>
 
@@ -239,4 +240,5 @@ let g:clang_library_path='/usr/lib/llvm-8/lib/libclang.so.1'
 
 " project-specific settings
 au BufNewFile,BufRead */vector/* set binary
+au BufNewFile,BufRead */vector/* set et
 au BufNewFile */vector/* set noeol
