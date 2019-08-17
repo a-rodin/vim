@@ -159,7 +159,7 @@ autocmd BufnewFile,BufRead * let g:nerdtree_tabs_open_on_console_startup=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | let g:nerdtree_tabs_open_on_console_startup=1 | let g:firstStart=1 | endif
 
 " let g:taboo_tab_format=" %N:%f%m "
-let g:taboo_tab_format=" %N:%b%m "
+let g:taboo_tab_format=" %N:%r%m "
 
 set ruler
 set laststatus=0
