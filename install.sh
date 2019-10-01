@@ -13,3 +13,4 @@ vim -c PluginInstall -c 'silent VimProcInstall' -c qa
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/tpm && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+cp -R after/ ~/.vim/after

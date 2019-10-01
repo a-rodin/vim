@@ -18,7 +18,6 @@ syntax enable
 set ffs=unix
 set cc=120
 let g:NERDTreeWinSize=22
-syntax sync fromstart
 " :nnoremap <C-D> "=strftime("%c")<CR>P
 " :inoremap <C-D> <C-R>=strftime("%c")<CR>
 
@@ -229,14 +228,18 @@ map cc :VCoolor<CR>
 
 " autoformatting
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
 
 let g:rustfmt_autosave = 1
 
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
-let g:clang_library_path='/usr/lib/llvm-8/lib/libclang.so.1'
+if system('uname') =~ 'Linux'
+    let g:clang_library_path='/usr/lib/llvm-8/lib/libclang.so.1'
+else
+    let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+endif
 
 " project-specific settings
 au BufNewFile,BufRead */vector/* set binary
