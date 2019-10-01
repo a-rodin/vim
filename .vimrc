@@ -1,6 +1,6 @@
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set smartindent
@@ -18,7 +18,7 @@ syntax enable
 set ffs=unix
 set cc=120
 let g:NERDTreeWinSize=22
-set synmaxcol=0
+syntax sync fromstart
 " :nnoremap <C-D> "=strftime("%c")<CR>P
 " :inoremap <C-D> <C-R>=strftime("%c")<CR>
 
@@ -78,10 +78,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set t_Co=256   " This is may or may not needed.
-set background=dark
+" set background=dark
 " set background=light
-" colorscheme Simple256
-colorscheme PaperColor
+colorscheme simple256
+" colorscheme PaperColor
 " colorscheme ambient
 " set background=light
 " colorscheme tango
@@ -155,8 +155,8 @@ endfunction
 command! -bang Tabcloseright call TabCloseRight('<bang>')
 command! -bang Tabcloseleft call TabCloseLeft('<bang>')
 
-autocmd BufnewFile,BufRead * let g:nerdtree_tabs_open_on_console_startup=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | let g:nerdtree_tabs_open_on_console_startup=1 | let g:firstStart=1 | endif
+" autocmd BufnewFile,BufRead * let g:nerdtree_tabs_open_on_console_startup=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | let g:nerdtree_tabs_open_on_console_startup=1 | let g:firstStart=1 | endif
 
 " let g:taboo_tab_format=" %N:%f%m "
 let g:taboo_tab_format=" %N:%r%m "
