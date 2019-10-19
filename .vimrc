@@ -11,7 +11,7 @@ set nohlsearch
 set ignorecase
 set mouse=a
 set mousemodel=extend
-set clipboard=unnamed
+set clipboard=unnamedplus
 set foldenable
 set hlsearch
 syntax enable
